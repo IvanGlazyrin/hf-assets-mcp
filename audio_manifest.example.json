@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "_comment": [
+    "Manifest for the generate_audio_batch tool: a list of assets to generate",
+    "through the Hugging Face Spaces. Each entry is one prompt, one model and the",
+    "parameters of the run; the tool writes a <name>_<seed>.<ext> file plus a",
+    ".json sidecar with the prompt, the parameters and the raw answer of the Space.",
+    "licence must be one of the shippable_licences below: the tool refuses",
+    "non-commercial models (mmaudio is CC-BY-NC-4.0 and is rejected), so a",
+    "prototype result can never be mistaken for a shippable one.",
+    "Pick the prompts so the takes share a tempo when they are meant to be",
+    "crossfaded into one another."
+  ],
+  "shippable_licences": [
+    "Apache-2.0",
+    "MIT",
+    "StabilityAI-Community"
+  ],
+  "assets": [
+    {
+      "name": "machine_hum_loop",
+      "model": "stable",
+      "prompt": "Low steady hum of a large industrial machine, soft mechanical vibration, distant metallic rattle, smooth continuous sound, seamless loop",
+      "params": { "seconds": 10, "seed": 5234 },
+      "licence": "StabilityAI-Community",
+      "seamless_loop": true,
+      "target_dbfs": -18.0
+    },
+    {
+      "name": "wind_loop",
+      "model": "stable",
+      "prompt": "Steady wind over an open plain, layered airflow, soft gusts, seamless loop, no voices, no music",
+      "params": { "seconds": 12, "seed": 6112 },
+      "licence": "StabilityAI-Community",
+      "seamless_loop": true,
+      "target_dbfs": -20.0
+    },
+    {
+      "name": "music_calm",
+      "model": "music",
+      "prompt": "Electronic game soundtrack, instrumental, 130 BPM, relaxed breakbeat groove, warm analog pads, soft synth arpeggio, light drums, no vocals",
+      "params": { "seconds": 60, "seed": 1234 },
+      "licence": "Apache-2.0",
+      "seamless_loop": true,
+      "target_dbfs": -19.0
+    },
+    {
+      "name": "music_steady",
+      "model": "music",
+      "prompt": "Electronic game soundtrack, instrumental, 130 BPM, driving breakbeat, punchy kick and snare, rolling bassline, bright synth stabs, confident forward momentum, no vocals",
+      "params": { "seconds": 60, "seed": 2234 },
+      "licence": "Apache-2.0",
+      "seamless_loop": true,
+      "target_dbfs": -19.0
+    },
+    {
+      "name": "music_intense",
+      "model": "music",
+      "prompt": "Electronic game soundtrack, instrumental, 130 BPM, high energy acid bassline, relentless breakbeat drums, tense lead synth, a tense, urgent pace, no vocals",
+      "params": { "seconds": 60, "seed": 3234 },
+      "licence": "Apache-2.0",
+      "seamless_loop": true,
+      "target_dbfs": -19.0
+    }
+  ]
+}

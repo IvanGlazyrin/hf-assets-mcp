@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 260" width="860" height="260" role="img" aria-label="Asset generation pipeline">
+  <rect width="860" height="260" fill="#0b1220"/>
+  <g font-family="IBM Plex Mono, ui-monospace, monospace" font-size="13" fill="#e2e8f0">
+    <text x="20" y="30" fill="#7dd3fc" font-size="15">HF ASSETS — PIPELINE</text>
+
+    <rect x="20" y="60" width="150" height="66" rx="10" fill="#132033" stroke="#38bdf8"/>
+    <text x="34" y="86">Prompt</text>
+    <text x="34" y="108" fill="#7dd3fc">MCP tool call</text>
+
+    <rect x="210" y="60" width="170" height="66" rx="10" fill="#132033" stroke="#38bdf8"/>
+    <text x="224" y="86">HF Space</text>
+    <text x="224" y="108" fill="#7dd3fc">ZeroGPU, 5 min/day</text>
+
+    <rect x="420" y="60" width="170" height="66" rx="10" fill="#132033" stroke="#38bdf8"/>
+    <text x="434" y="86">Candidates</text>
+    <text x="434" y="108" fill="#7dd3fc">file + .json</text>
+
+    <rect x="630" y="60" width="210" height="66" rx="10" fill="#1c2a1f" stroke="#4ade80"/>
+    <text x="644" y="86">Human picks</text>
+    <text x="644" y="108" fill="#86efac">the only manual step</text>
+
+    <path d="M170 93h40M380 93h40M590 93h40" stroke="#38bdf8" stroke-width="2"/>
+
+    <rect x="210" y="160" width="290" height="66" rx="10" fill="#132033" stroke="#a78bfa"/>
+    <text x="224" y="186">postprocess_audio</text>
+    <text x="224" y="208" fill="#c4b5fd">crossfade, loudness, OGG</text>
+
+    <rect x="550" y="160" width="290" height="66" rx="10" fill="#132033" stroke="#a78bfa"/>
+    <text x="564" y="186">Finished asset</text>
+    <text x="564" y="208" fill="#c4b5fd">licence checked, seed recorded</text>
+
+    <path d="M735 126v34M355 193H420" stroke="#a78bfa" stroke-width="2"/>
+    <path d="M420 193h130" stroke="#a78bfa" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="20" y="193" fill="#94a3b8">Procedural</text>
+    <text x="20" y="212" fill="#94a3b8">synthesizers</text>
+    <text x="20" y="231" fill="#94a3b8">bypass it</text>
+  </g>
+</svg>

@@ -1,0 +1,58 @@
+{
+  "name": "hf-assets-mcp",
+  "version": "1.0.0",
+  "description": "MCP server that generates game assets through free Hugging Face Spaces",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IvanGlazyrin/hf-assets-mcp.git"
+  },
+  "homepage": "https://github.com/IvanGlazyrin/hf-assets-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/IvanGlazyrin/hf-assets-mcp/issues"
+  },
+  "author": "Ivan Glazyrin <glazrus97@gmail.com>",
+  "type": "module",
+  "bin": {
+    "hf-assets-mcp": "dist/server.js"
+  },
+  "main": "dist/server.js",
+  "files": [
+    "dist",
+    "blender/*.py",
+    "PROMPT_TEMPLATES.md",
+    "audio_manifest.example.json"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/server.ts",
+    "start": "node dist/server.js",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p test/tsconfig.json --noEmit",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "huggingface",
+    "game-assets",
+    "text-to-image",
+    "text-to-3d",
+    "text-to-audio"
+  ],
+  "dependencies": {
+    "@gradio/client": "^2.7.1",
+    "@modelcontextprotocol/server": "^2.3.1",
+    "zod": "^4.2.0"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "^2.3.1",
+    "@types/node": "^24.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.0",
+    "vitest": "^5.0.0"
+  }
+}

@@ -1,0 +1,31 @@
+node_modules/
+dist/
+*.tsbuildinfo
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Generated assets and intermediate files
+out/
+*.ogg
+*.wav
+*.mp3
+*.flac
+*.m4a
+*.aac
+*.glb
+*.png
+!docs/*.png
+
+# Provenance sidecars next to assets: <name>_<seed>.json
+*_[0-9]*.json
