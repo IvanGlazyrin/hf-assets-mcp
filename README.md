@@ -115,6 +115,43 @@ blender/
 `blender/` is the one part that is still Python: Blender's API is Python, so
 the studio renderer is a script the server runs as a subprocess.
 
+## Why not the official Hugging Face MCP server?
+
+Hugging Face ships an [official MCP server](https://huggingface.co/docs/hub/en/hf-mcp-server)
+that can search the Hub and call any Space that exposes itself as an MCP tool,
+and Gradio can turn an app into an MCP server with `mcp_server=True`. If all you
+want is to call one of those Spaces from an agent, use it: it is less to install.
+
+This project exists for what that does not cover.
+
+- **Not every Space is an MCP tool.** The author of a Space has to switch MCP on.
+  Checked on 2026-10-20, four of the nine Spaces used here expose it (Z-Image
+  Turbo, Qwen-Image, TRELLIS, Chatterbox) and five do not: FLUX.2 Klein,
+  Hunyuan3D-2, Stable Audio Open, MMAudio and ACE-Step. Between them they
+  cover editing from a reference, one of the two image-to-3D models and all of
+  the sound effects and music. Here they are reached through the plain Gradio API,
+  which every Space has. A Space may turn MCP on later, and then the official
+  server will reach it too.
+- **One tool per job, not a raw API.** TRELLIS alone exposes twelve tools
+  through MCP, and the agent has to work out which to call and in what order.
+  Here, `generate_mesh` is one call, with the right parameters filled in.
+  Likewise for image sizes, which Z-Image only accepts as exact strings.
+- **A licence gate.** `list_models` says which model may ship, and
+  `generate_audio_batch` refuses a manifest that names a non-commercial model
+  (MMAudio is CC-BY-NC-4.0), so a prototype take cannot be mistaken for a
+  shippable one.
+- **Provenance.** Every file is written next to a `.json` with the prompt, the
+  parameters, the seed and the raw Space response.
+- **Work after the generation.** `postprocess_audio` trims, crossfades a loop and
+  normalises; `render_mesh` shows the agent the mesh from six angles in Blender
+  so it can judge the shape; `model_sheet` builds a prompt that works for
+  image-to-3D.
+- **Things that need no Space at all.** `synth_sound` makes an engine loop that
+  survives a pitch shift, Foley and music with no network and no quota.
+
+What is the same: both spend the same ZeroGPU quota, and both depend on someone
+else's free Space staying up.
+
 ## Why this works
 
 **A synthesised loop survives a pitch shift.** A recorded or generated loop has
